@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "paths": {
+            "@library/*": ["./public/library/*"],
+            "@script/*": ["./public/script/*"],
+            "@style/*": ["./public/style/*"],
+        }
+    }
+}
