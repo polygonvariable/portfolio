@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Lorem ipsum dolor sit amet consectetur adipisicing elit</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+	<link href="/style/app.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+	<div class="app">
+		<div class="app-grid">
+			<div class="app-header">
+				<div class="header">
+    <h1 class="title color-primary"><a href="/">polygonvariable</a></h1>
+    <div class="search">
+        <button id="search-open">Search</button>
+    </div>
+</div>
+			</div>
+			<main class="app-content">
+				
+<div class="content">
+    <div class="navigation">
+        <h2 class="path color-secondary"><a href="/project/unreal">/project/unreal/</a></h2>
+	    <h2 class="title text-accent-07" data-pagefind-meta="title">Lorem ipsum dolor sit amet consectetur adipisicing elit</h2>
+	    <h2 class="sub text-accent-07">07 Jan 2026</h2>
+    </div>
+    <div>
+        <article class="post content color-content" data-pagefind-body>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil fugiat quibusdam accusantium quia facere vel? Alias quo ad, officiis dolor error minima, at doloremque cupiditate, omnis blanditii</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil fugiat quibusdam accusantium quia facere vel? Alias quo ad, officiis dolor error minima,</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil fugiat quibusdam accusantium quia facere vel? Alias quo ad, officiis dolor error minima, at doloremque cupiditate, omnis blanditiis commodi odit reiciendis?</p></article>
+    </div>
+</div>
+
+<div class="content border bg-accent-07 opacity-50"></div>
+
+
+
+
+<div class="content">
+    <div class="navigation">
+        <h2 class="path color-secondary"><a href="/project/unreal">/project/unreal</a></h2>
+	    <h2 class="title color-primary">Recent Blogs</h2>
+    </div>
+	<div class="card-container">
+        
+            <a href="/project/unreal/hello-world/" class="card card-h bg-accent-07">
+    <i class="fa-solid fa-bookmark card-bookmark"></i>
+    <div class="card-content">
+        <label class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit</label>
+        <label class="sub">07 Jan 2026</label>
+    </div>
+</a>
+        
+            <a href="/project/unreal/hello-world3/" class="card card-h bg-accent-07">
+    <i class="fa-solid fa-bookmark card-bookmark"></i>
+    <div class="card-content">
+        <label class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit</label>
+        <label class="sub">03 Jan 2026</label>
+    </div>
+</a>
+        
+            <a href="/project/unreal/hello-world2/" class="card card-h bg-accent-07">
+    <i class="fa-solid fa-bookmark card-bookmark"></i>
+    <div class="card-content">
+        <label class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit</label>
+        <label class="sub">01 Jan 2026</label>
+    </div>
+</a>
+        
+	</div>
+</div>
+			</main>
+		</div>
+	</div>
+
+	
+<div id="search-overlay" class="hidden">
+    <div>
+        <div class="search-container" role="dialog" aria-modal="true">
+            <div class="search-header">
+                <h2 class="title">Search</h2>
+                <button id="search-close" class="close" aria-label="Close search">&times;</button>
+            </div>
+            <div id="search"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>
+
+	let searchUI;
+
+	function openSearch() {
+		const overlay = document.getElementById("search-overlay");
+		overlay.classList.remove("hidden");
+
+		if (!searchUI) {
+			searchUI = new PagefindUI({
+				element: "#search",
+				autofocus: true,
+				showSubResults: true,
+				showImages: false
+			});
+		}
+
+		document.addEventListener("keydown", onKeydown);
+	}
+
+	function closeSearch() {
+		document.getElementById("search-overlay").classList.add("hidden");
+		document.removeEventListener("keydown", onKeydown);
+	}
+
+	function onKeydown(e) {
+		if (e.key === "Escape") {
+			closeSearch();
+		}
+	}
+
+	document.getElementById("search-open").addEventListener("click", openSearch);
+	document.getElementById("search-close").addEventListener("click", closeSearch);
+
+	document
+		.getElementById("search-overlay")
+		.addEventListener("click", (e) => {
+			if (e.target.id === "search-overlay") closeSearch();
+		});
+</script>

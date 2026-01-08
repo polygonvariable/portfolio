@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Contact</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+	<link href="/style/app.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+	<div class="app">
+		<div class="app-grid">
+			<div class="app-header">
+				<div class="header">
+    <h1 class="title color-primary"><a href="/">polygonvariable</a></h1>
+    <div class="search">
+        <button id="search-open">Search</button>
+    </div>
+</div>
+			</div>
+			<main class="app-content">
+				
+
+
+
+
+<div class="content">
+    <div class="navigation">
+        <h2 class="path color-secondary"><a href="/">/</a></h2>
+	    <h2 class="title color-primary">Contact</h2>
+    </div>
+	<div class="card-container">
+		
+			<a href="https://www.youtube.com/@PolygonVariable" class="card card-v bg-accent-02">
+    <i class="fa-solid fa-bookmark card-bookmark"></i>
+    <div class="card-content">
+        <label class="title">Youtube</label>
+    </div>
+</a>
+		
+			<a href="https://www.instagram.com/polygonvariable" class="card card-v bg-accent-03">
+    <i class="fa-solid fa-bookmark card-bookmark"></i>
+    <div class="card-content">
+        <label class="title">Instagram</label>
+    </div>
+</a>
+		
+			<a href="https://twitter.com/polygonvariable" class="card card-v bg-accent-04">
+    <i class="fa-solid fa-bookmark card-bookmark"></i>
+    <div class="card-content">
+        <label class="title">Twitter</label>
+    </div>
+</a>
+		
+			<a href="https://github.com/polygonvariable" class="card card-v bg-accent-05">
+    <i class="fa-solid fa-bookmark card-bookmark"></i>
+    <div class="card-content">
+        <label class="title">Github</label>
+    </div>
+</a>
+		
+			<a href="https://polygonvariable.itch.io/" class="card card-v bg-accent-06">
+    <i class="fa-solid fa-bookmark card-bookmark"></i>
+    <div class="card-content">
+        <label class="title">Itch.io</label>
+    </div>
+</a>
+		
+			<a href="https://www.reddit.com/user/globalvariable7/" class="card card-v bg-accent-07">
+    <i class="fa-solid fa-bookmark card-bookmark"></i>
+    <div class="card-content">
+        <label class="title">Reddit</label>
+    </div>
+</a>
+		
+			<a href="https://linktr.ee/polygonvariable" class="card card-v bg-accent-08">
+    <i class="fa-solid fa-bookmark card-bookmark"></i>
+    <div class="card-content">
+        <label class="title">Linktree</label>
+    </div>
+</a>
+		
+	</div>
+</div>
+			</main>
+		</div>
+	</div>
+
+	
+<div id="search-overlay" class="hidden">
+    <div>
+        <div class="search-container" role="dialog" aria-modal="true">
+            <div class="search-header">
+                <h2 class="title">Search</h2>
+                <button id="search-close" class="close" aria-label="Close search">&times;</button>
+            </div>
+            <div id="search"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>
+
+	let searchUI;
+
+	function openSearch() {
+		const overlay = document.getElementById("search-overlay");
+		overlay.classList.remove("hidden");
+
+		if (!searchUI) {
+			searchUI = new PagefindUI({
+				element: "#search",
+				autofocus: true,
+				showSubResults: true,
+				showImages: false
+			});
+		}
+
+		document.addEventListener("keydown", onKeydown);
+	}
+
+	function closeSearch() {
+		document.getElementById("search-overlay").classList.add("hidden");
+		document.removeEventListener("keydown", onKeydown);
+	}
+
+	function onKeydown(e) {
+		if (e.key === "Escape") {
+			closeSearch();
+		}
+	}
+
+	document.getElementById("search-open").addEventListener("click", openSearch);
+	document.getElementById("search-close").addEventListener("click", closeSearch);
+
+	document
+		.getElementById("search-overlay")
+		.addEventListener("click", (e) => {
+			if (e.target.id === "search-overlay") closeSearch();
+		});
+</script>
