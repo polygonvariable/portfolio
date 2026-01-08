@@ -1,0 +1,12 @@
+---
+layout: layout
+---
+
+{% include "post/content.njk" %}
+
+{% include "ui/separator.njk" %}
+
+{% set header = "Recent Blogs" %}
+{% set cards = collections.unrealProject %}
+
+{% include "post/grid.njk" %}

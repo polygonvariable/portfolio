@@ -1,0 +1,15 @@
+---
+layout: layout
+title: Blogs
+---
+
+{% set header = title %}
+{% set path = "/" %}
+{%
+	set cards = [
+		{ label: "Unreal Engine", url: "/blog/unreal", class: "bg-accent-08" },
+		{ label: "Blender", url: "/blog/blender", class: "bg-accent-09" }
+	]
+%}
+
+{% include "navigation/grid.njk" %}

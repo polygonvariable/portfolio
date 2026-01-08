@@ -1,0 +1,11 @@
+<div class="content">
+    <div class="navigation">
+        <h2 class="path color-secondary"><a href="{{ path | url }}">{{ path }}</a></h2>
+	    <h2 class="title color-primary">{{ header }}</h2>
+    </div>
+	<div class="card-container">
+		{% for card in cards %}
+			{% include "navigation/card.njk" %}
+		{% endfor %}
+	</div>
+</div>

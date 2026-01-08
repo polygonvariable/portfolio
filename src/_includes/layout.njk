@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>{{ title }}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="{{ '/pagefind/pagefind-ui.css' | url }}" rel="stylesheet" />
+	<link href="{{ '/style/app.css' | url }}" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+	<div class="app">
+		<div class="app-grid">
+			<div class="app-header">
+				{% include "header.njk" %}
+			</div>
+			<main class="app-content">
+				{{ content | safe }}
+			</main>
+		</div>
+	</div>
+
+	{% include "search.njk" %}
+
+</body>
+</html>
+<script src="{{ '/pagefind/pagefind-ui.js' | url }}"></script>
+<script>
+
+	let searchUI;
+
+	function openSearch() {
+		const overlay = document.getElementById("search-overlay");
+		overlay.classList.remove("hidden");
+
+		if (!searchUI) {
+			searchUI = new PagefindUI({
+				element: "#search",
+				autofocus: true,
+				showSubResults: true,
+				showImages: false
+			});
+		}
+
+		document.addEventListener("keydown", onKeydown);
+	}
+
+	function closeSearch() {
+		document.getElementById("search-overlay").classList.add("hidden");
+		document.removeEventListener("keydown", onKeydown);
+	}
+
+	function onKeydown(e) {
+		if (e.key === "Escape") {
+			closeSearch();
+		}
+	}
+
+	document.getElementById("search-open").addEventListener("click", openSearch);
+	document.getElementById("search-close").addEventListener("click", closeSearch);
+
+	document
+		.getElementById("search-overlay")
+		.addEventListener("click", (e) => {
+			if (e.target.id === "search-overlay") closeSearch();
+		});
+</script>

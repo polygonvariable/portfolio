@@ -1,0 +1,20 @@
+---
+layout: layout
+title: Contact
+---
+
+{% set header = title %}
+{% set path = "/" %}
+{%
+	set cards = [
+		{ label: "Youtube", url: "https://www.youtube.com/@PolygonVariable", class: "bg-accent-02" },
+		{ label: "Instagram", url: "https://www.instagram.com/polygonvariable", class: "bg-accent-03" },
+        { label: "Twitter", url: "https://twitter.com/polygonvariable", class: "bg-accent-04" },
+        { label: "Github", url: "https://github.com/polygonvariable", class: "bg-accent-05" },
+        { label: "Itch.io", url: "https://polygonvariable.itch.io/", class: "bg-accent-06" },
+        { label: "Reddit", url: "https://www.reddit.com/user/globalvariable7/", class: "bg-accent-07" },
+        { label: "Linktree", url: "https://linktr.ee/polygonvariable", class: "bg-accent-08" }
+	]
+%}
+
+{% include "navigation/grid.njk" %}

@@ -1,0 +1,353 @@
+@import "tailwindcss";
+
+*:focus {
+    @apply outline-none;
+}
+
+body, html {
+    @apply w-full h-full;
+    @apply overflow-hidden;
+    background-color: #18181b;
+    opacity: 1;
+    background:
+        radial-gradient(circle, transparent 20%, #18181b 20%, #18181b 80%, transparent 80%, transparent),
+        radial-gradient(circle, transparent 20%, #18181b 20%, #18181b 80%, transparent 80%, transparent) 25px 25px,
+        linear-gradient(rgba(27, 27, 31, 1) 2px, transparent 2px) 0 -1px,
+        linear-gradient(90deg, rgba(27, 27, 31, 1) 2px, #18181b 2px) -1px 0;
+    background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
+}
+
+.app {
+    @apply w-full h-full overflow-auto;
+    @apply p-6 md:p-8 lg:p-16;
+    @apply flex flex-col;
+}
+.app-grid {
+    @apply w-full;
+    @apply space-y-8 md:space-y-10 lg:space-y-12;
+}
+.app-content {
+    @apply space-y-8;
+}
+
+
+
+
+.header {
+    @apply flex flex-row;
+    @apply items-center;
+    @apply space-x-2;
+}
+
+.header > .title {
+    @apply text-xl sm:text-2xl;
+    @apply font-normal sm:font-semibold;
+    @apply w-auto;
+    @apply transition-colors;
+}
+.header > .title:hover {
+    @apply text-sky-500;
+}
+
+.header > .search {
+    @apply flex;
+    @apply w-full justify-end;
+}
+.search > #search-open {
+    @apply bg-sky-500;
+    @apply text-xs font-bold;
+    @apply rounded-md;
+    @apply p-2 px-3 sm:p-2 sm:px-5;
+    @apply cursor-pointer;
+}
+
+#search-overlay {
+    @apply absolute top-0 left-0;
+    @apply w-full h-full;
+    @apply bg-zinc-900 sm:bg-zinc-900/90;
+}
+#search-overlay > div {
+    @apply w-full h-full;
+    @apply flex;
+    @apply justify-center items-center;
+}
+.search-container {
+    @apply p-8;
+    @apply bg-zinc-300;
+    @apply w-full md:w-1/2 h-full md:h-auto md:max-h-full;
+    @apply rounded-none md:rounded-md;
+    @apply overflow-auto;
+    @apply space-y-4;
+}
+.search-header {
+    @apply flex flex-row;
+}
+.search-header .title {
+    @apply w-full;
+    @apply text-xl;
+}
+.search-header .close {
+    @apply text-2xl;
+    @apply font-semibold;
+}
+
+
+
+
+
+.content {
+    @apply flex flex-col;
+    @apply space-y-4 md:space-y-6 lg:space-y-8;
+}
+.content > .navigation > .path,
+.content > .navigation > .title,
+.content > .navigation > .sub {
+    @apply font-semibold;
+}
+.content > .navigation > .title {
+    @apply text-2xl lg:text-4xl;
+}
+.content > .navigation > .path {
+    @apply capitalize;
+    @apply text-xs md:text-base;
+}
+.content > .navigation > .sub {
+    @apply text-xs md:text-sm;
+}
+
+
+
+
+
+
+.card-container {
+    @apply flex flex-col flex-wrap md:flex-row;
+    @apply space-x-3 space-y-3;
+}
+
+.card {
+    @apply rounded-md;
+    @apply flex;
+    @apply items-end;
+    @apply p-3 px-4;
+    @apply font-semibold;
+    @apply cursor-pointer;
+    @apply relative;
+    @apply overflow-hidden;
+    @apply border-l-0;
+    @apply transition-all;
+    animation: 0.5s fade-in;
+}
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.card:hover {
+    @apply shadow-xl;
+    @apply border-l-0 sm:border-l-8;
+}
+
+.card.card-v {
+    @apply h-24 w-full md:w-48 md:h-72;
+}
+.card.card-h {
+    @apply h-24 w-full md:w-80 md:h-44;
+}
+
+.card > .card-content {
+    @apply flex flex-col;
+}
+.card-content > .title {
+    @apply text-sm md:text-base;
+    @apply text-zinc-900;
+}
+.card-content > .sub {
+    @apply text-xs font-semibold;
+    @apply text-zinc-900;
+}
+
+
+.card-bookmark {
+    @apply absolute;
+    @apply -top-3 md:-top-5 left-1;
+    @apply text-3xl md:text-5xl;
+    @apply opacity-20;
+    @apply transition-all;
+    @apply text-zinc-900;
+}
+.card:hover > .card-bookmark {
+    @apply -top-1;
+    @apply opacity-100;
+}
+
+
+
+
+.bg-accent-01 {
+    @apply bg-red-600;
+    @apply shadow-red-800;
+    @apply border-red-700;
+}
+.bg-accent-02 {
+    @apply bg-orange-600;
+    @apply shadow-orange-800;
+    @apply border-orange-700;
+}
+.bg-accent-03 {
+    @apply bg-amber-600;
+    @apply shadow-amber-800;
+    @apply border-amber-700;
+}
+.bg-accent-04 {
+    @apply bg-yellow-600;
+    @apply shadow-yellow-800;
+    @apply border-yellow-700;
+}
+.bg-accent-05 {
+    @apply bg-lime-600;
+    @apply shadow-lime-800;
+    @apply border-lime-700;
+}
+.bg-accent-06 {
+    @apply bg-green-600;
+    @apply shadow-green-800;
+    @apply border-green-700;
+}
+.bg-accent-07 {
+    @apply bg-emerald-600;
+    @apply shadow-emerald-800;
+    @apply border-emerald-700;
+}
+.bg-accent-08 {
+    @apply bg-teal-600;
+    @apply shadow-teal-800;
+    @apply border-teal-700;
+}
+.bg-accent-09 {
+    @apply bg-cyan-600;
+    @apply shadow-cyan-800;
+    @apply border-cyan-700;
+}
+.bg-accent-10 {
+    @apply bg-sky-600;
+    @apply shadow-sky-800;
+    @apply border-sky-700;
+}
+.bg-accent-11 {
+    @apply bg-blue-600;
+    @apply shadow-blue-800;
+    @apply border-blue-700;
+}
+.bg-accent-12 {
+    @apply bg-indigo-600;
+    @apply shadow-indigo-800;
+    @apply border-indigo-700;
+}
+.bg-accent-13 {
+    @apply bg-violet-600;
+    @apply shadow-violet-800;
+    @apply border-violet-700;
+}
+.bg-accent-14 {
+    @apply bg-purple-600;
+    @apply shadow-purple-800;
+    @apply border-purple-700;
+}
+.bg-accent-15 {
+    @apply bg-fuchsia-600;
+    @apply shadow-fuchsia-800;
+    @apply border-fuchsia-700;
+}
+.bg-accent-16 {
+    @apply bg-pink-600;
+    @apply shadow-pink-800;
+    @apply border-pink-700;
+}
+.bg-accent-17 {
+    @apply bg-rose-600;
+    @apply shadow-rose-800;
+    @apply border-rose-700;
+}
+
+
+
+
+
+
+
+.post.content {
+    @apply xl:w-1/2 w-full;
+    @apply text-sm lg:text-base;
+    @apply space-y-6;
+}
+
+
+
+.color-primary {
+    @apply text-zinc-400;
+}
+.color-secondary {
+    @apply text-zinc-600;
+}
+.color-content {
+    @apply text-zinc-400;
+}
+
+
+
+
+.text-accent-01 {
+    @apply text-red-600;
+}
+.text-accent-02 {
+    @apply text-orange-600;
+}
+.text-accent-03 {
+    @apply text-amber-600;
+}
+.text-accent-04 {
+    @apply text-yellow-600;
+}
+.text-accent-05 {
+    @apply text-lime-600;
+}
+.text-accent-06 {
+    @apply text-green-600;
+}
+.text-accent-07 {
+    @apply text-emerald-600;
+}
+.text-accent-08 {
+    @apply text-teal-600;
+}
+.text-accent-09 {
+    @apply text-cyan-600;
+}
+.text-accent-10 {
+    @apply text-sky-600;
+}
+.text-accent-11 {
+    @apply text-blue-600;
+}
+.text-accent-12 {
+    @apply text-indigo-600;
+}
+.text-accent-13 {
+    @apply text-violet-600;
+}
+.text-accent-14 {
+    @apply text-purple-600;
+}
+.text-accent-15 {
+    @apply text-fuchsia-600;
+}
+.text-accent-16 {
+    @apply text-pink-600;
+}
+.text-accent-17 {
+    @apply text-rose-600;
+}

@@ -1,0 +1,7 @@
+<a href="{{ card.url | url }}" class="card card-h {{ bgAccent }}">
+    <i class="fa-solid fa-bookmark card-bookmark"></i>
+    <div class="card-content">
+        <label class="title">{{ card.data.title }}</label>
+        <label class="sub">{{ card.data.date | shortDate }}</label>
+    </div>
+</a>

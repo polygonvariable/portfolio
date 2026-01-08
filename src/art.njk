@@ -1,0 +1,18 @@
+---
+layout: layout
+title: Art
+---
+
+{% set header = title %}
+{% set path = "/" %}
+{%
+	set cards = [
+		{ label: "2026", url: "/art/2026", class: "bg-accent-03" },
+		{ label: "2025", url: "/art/2025", class: "bg-accent-04" },
+		{ label: "2024", url: "/art/2024", class: "bg-accent-05" },
+		{ label: "2023", url: "/art/2023", class: "bg-accent-06" },
+		{ label: "2022", url: "/art/2022", class: "bg-accent-07" }
+	]
+%}
+
+{% include "navigation/grid.njk" %}

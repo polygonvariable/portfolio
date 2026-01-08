@@ -1,0 +1,10 @@
+<div class="content">
+    <div class="navigation">
+        <h2 class="path color-secondary"><a href="{{ path | url }}">{{ path }}/</a></h2>
+	    <h2 class="title {{ textAccent }}" data-pagefind-meta="title">{{ title }}</h2>
+	    <h2 class="sub {{ textAccent }}">{{ date | shortDate }}</h2>
+    </div>
+    <div>
+        <article class="post content color-content" data-pagefind-body>{{ content | safe }}</article>
+    </div>
+</div>
