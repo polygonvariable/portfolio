@@ -7,6 +7,8 @@ function addCollection(eleventyConfig, collectionName, collectionPath) {
 }
 
 module.exports = function (eleventyConfig) {
+    const isProduction = process.env.ELEVENTY_ENV === "production";
+
     eleventyConfig.addPassthroughCopy("src/style");
 
     let collections = {
@@ -30,7 +32,7 @@ module.exports = function (eleventyConfig) {
     });
 
     return {
-        pathPrefix: process.env.ELEVENTY_PATH_PREFIX || "/",
+        pathPrefix: isProduction ? "/portfolio/" : "/",
         dir: {
             input: "src",
             includes: "_includes",

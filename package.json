@@ -6,19 +6,24 @@
 	"author": "",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "npx @11ty/eleventy --serve",
-		"dev:css": "npx tailwindcss -i ./src/style/input.css -o ./src/style/app.css --watch",
-		"build": "npx @11ty/eleventy",
-		"build:css": "npx tailwindcss -i ./src/style/input.css -o ./src/style/app.css --minify",
-		"build:search": "pagefind --site _site",
-		"deploy": "gh-pages -d _site"
+		"dev": "npm run dev:eleventy",
+		"dev:eleventy": "cross-env ELEVENTY_ENV=development npx @11ty/eleventy --serve",
+		"dev:tailwind": "npx tailwindcss -i ./src/style/input.css -o ./src/style/app.css --watch",
+
+		"build": "npm run build:eleventy && npm run build:tailwind && npm run build:pagefind",
+		"build:eleventy": "cross-env ELEVENTY_ENV=production npx @11ty/eleventy",
+		"build:tailwind": "npx tailwindcss -i ./src/style/input.css -o ./src/style/app.css --minify",
+		"build:pagefind": "pagefind --site _site",
+
+		"deploy": "npm run build && gh-pages -d _site"
 	},
 	"dependencies": {
 		"@11ty/eleventy": "^3.1.2",
 		"@tailwindcss/cli": "^4.1.18"
 	},
 	"devDependencies": {
+		"cross-env": "^10.1.0",
+		"gh-pages": "^6.3.0",
 		"pagefind": "^1.4.0",
 		"tailwindcss": "^4.1.18"
 	}
