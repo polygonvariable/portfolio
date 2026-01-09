@@ -533,7 +533,7 @@ body, html {
   }
 }
 .card.card-h {
-  height: calc(var(--spacing) * 24);
+  height: calc(var(--spacing) * 28);
   width: 100%;
   @media (width >= 48rem) {
     height: calc(var(--spacing) * 44);
@@ -564,10 +564,19 @@ body, html {
 }
 .card-bookmark {
   position: absolute;
-  top: calc(var(--spacing) * -5);
+  top: calc(var(--spacing) * -4);
   left: calc(var(--spacing) * 2);
-  height: calc(var(--spacing) * 14);
-  width: calc(var(--spacing) * 14);
+  @media (width >= 48rem) {
+    top: calc(var(--spacing) * -5);
+  }
+  height: calc(var(--spacing) * 10);
+  width: calc(var(--spacing) * 10);
+  @media (width >= 48rem) {
+    height: calc(var(--spacing) * 14);
+  }
+  @media (width >= 48rem) {
+    width: calc(var(--spacing) * 14);
+  }
   opacity: 20%;
   transition-property: all;
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -575,7 +584,10 @@ body, html {
   fill: var(--color-zinc-900);
 }
 .card:hover > .card-bookmark {
-  top: calc(var(--spacing) * -3);
+  top: calc(var(--spacing) * -2);
+  @media (width >= 48rem) {
+    top: calc(var(--spacing) * -3);
+  }
   opacity: 100%;
 }
 .bg-accent-01 {
