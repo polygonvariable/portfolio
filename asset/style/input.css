@@ -173,14 +173,14 @@ body, html {
 
 .card-bookmark {
     @apply absolute;
-    @apply -top-3 md:-top-5 left-1;
-    @apply text-3xl md:text-5xl;
+    @apply -top-5 left-2;
+    @apply w-14 h-14;
     @apply opacity-20;
     @apply transition-all;
-    @apply text-zinc-900;
+    @apply fill-zinc-900;
 }
 .card:hover > .card-bookmark {
-    @apply -top-1;
+    @apply -top-3;
     @apply opacity-100;
 }
 
