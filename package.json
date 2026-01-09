@@ -8,11 +8,11 @@
 	"scripts": {
 		"dev": "npm run dev:eleventy",
 		"dev:eleventy": "cross-env ELEVENTY_ENV=development npx @11ty/eleventy --serve",
-		"dev:tailwind": "npx tailwindcss -i ./src/style/input.css -o ./src/style/app.css --watch",
+		"dev:tailwind": "npx tailwindcss -i ./src/asset/style/input.css -o ./src/asset/style/app.css --watch",
 
-		"build": "npm run build:eleventy && npm run build:tailwind && npm run build:pagefind",
+		"build": "npm run build:eleventy && npm run build:pagefind && npm run build:tailwind",
 		"build:eleventy": "cross-env ELEVENTY_ENV=production npx @11ty/eleventy",
-		"build:tailwind": "npx tailwindcss -i ./src/style/input.css -o ./src/style/app.css --minify",
+		"build:tailwind": "npx tailwindcss -i ./src/asset/style/input.css -o ./src/asset/style/app.css --minify",
 		"build:pagefind": "pagefind --site _site",
 
 		"deploy": "npm run build && gh-pages -d _site"

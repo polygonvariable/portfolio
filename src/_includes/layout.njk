@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8" />
 	<title>{{ title }}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link href="{{ '/pagefind/pagefind-ui.css' | url }}" rel="stylesheet" />
-	<link href="{{ '/style/app.css' | url }}" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="{{ '/asset/style/app.css' | url }}" rel="stylesheet">
 </head>
-
 <body>
 
 	<div class="app">
@@ -27,44 +23,70 @@
 
 </body>
 </html>
-<script src="{{ '/pagefind/pagefind-ui.js' | url }}"></script>
 <script>
 
-	let searchUI;
+	let pagefindLoaded = false;
+	let pagefindLoading = false;
+	let searchUI = null;
 
-	function openSearch() {
-		const overlay = document.getElementById("search-overlay");
-		overlay.classList.remove("hidden");
+	function loadStyle(href) {
+		return new Promise((resolve) => {
+			const link = document.createElement("link");
+			link.rel = "stylesheet";
+			link.href = href;
+			link.onload = resolve;
+			document.head.appendChild(link);
+		});
+	}
 
-		if (!searchUI) {
-			searchUI = new PagefindUI({
-				element: "#search",
-				autofocus: true,
-				showSubResults: true,
-				showImages: false
-			});
+	function loadScript(src) {
+		return new Promise((resolve) => {
+			const script = document.createElement("script");
+			script.src = src;
+			script.defer = true;
+			script.onload = resolve;
+			document.body.appendChild(script);
+		});
+	}
+
+	async function loadPagefind() {
+		if (pagefindLoaded || pagefindLoading) {
+			return;
 		}
+		pagefindLoading = true;
 
-		document.addEventListener("keydown", onKeydown);
+		await loadStyle("{{ '/pagefind/pagefind-ui.css' | url }}");
+		await loadScript("{{ '/pagefind/pagefind-ui.js' | url }}");
+
+		searchUI = new PagefindUI({
+			element: "#search",
+			autofocus: true,
+			showSubResults: true,
+			showImages: false
+		});
+
+		pagefindLoaded = true;
+		pagefindLoading = false;
+	}
+
+	async function openSearch() {
+		let searchOverlay = document.getElementById("search-overlay");
+		searchOverlay.classList.remove("hidden");
+		await loadPagefind();
 	}
 
 	function closeSearch() {
-		document.getElementById("search-overlay").classList.add("hidden");
-		document.removeEventListener("keydown", onKeydown);
-	}
-
-	function onKeydown(e) {
-		if (e.key === "Escape") {
-			closeSearch();
-		}
+		let searchOverlay = document.getElementById("search-overlay");
+		searchOverlay.classList.add("hidden");
 	}
 
 	document.getElementById("search-open").addEventListener("click", openSearch);
 	document.getElementById("search-close").addEventListener("click", closeSearch);
 
-	document
-		.getElementById("search-overlay")
-		.addEventListener("click", (e) => {
-			if (e.target.id === "search-overlay") closeSearch();
-		});
+	document.getElementById("search-overlay").addEventListener("click", (e) => {
+		if (e.target.id === "search-overlay") {
+			closeSearch();
+		}
+	});
+
 </script>

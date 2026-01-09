@@ -9,7 +9,7 @@ function addCollection(eleventyConfig, collectionName, collectionPath) {
 module.exports = function (eleventyConfig) {
     const isProduction = process.env.ELEVENTY_ENV === "production";
 
-    eleventyConfig.addPassthroughCopy("src/style");
+    eleventyConfig.addPassthroughCopy("src/asset");
 
     let collections = {
         "unrealBlog": "./src/blog/unreal/*.njk",
