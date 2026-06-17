@@ -3,16 +3,17 @@ layout: layout
 title: Art
 ---
 
-{% set header = title %}
-{% set path = "/" %}
-{%
-	set cards = [
-		{ label: "2026", url: "/art/2026", class: "bg-accent-03" },
-		{ label: "2025", url: "/art/2025", class: "bg-accent-04" },
-		{ label: "2024", url: "/art/2024", class: "bg-accent-05" },
-		{ label: "2023", url: "/art/2023", class: "bg-accent-06" },
-		{ label: "2022", url: "/art/2022", class: "bg-accent-07" }
+{% set section_header = title %}
+{% set section_path = "/" %}
+{% set section_textAccent = "text-accent-00" %}
+{% set section_cardPath = "widget/container/card-v.njk" %}
+{% set section_cardData = [
+		{ data: { title: "2026", card_bgAccent: "bg-accent-03" }, url: "/art/2026" },
+		{ data: { title: "2025", card_bgAccent: "bg-accent-04" }, url: "/art/2025" },
+		{ data: { title: "2024", card_bgAccent: "bg-accent-05" }, url: "/art/2024" },
+		{ data: { title: "2023", card_bgAccent: "bg-accent-06" }, url: "/art/2023" },
+		{ data: { title: "2022", card_bgAccent: "bg-accent-07" }, url: "/art/2022" }
 	]
 %}
 
-{% include "navigation/grid.njk" %}
+{% include "widget/container/grid.njk" %}

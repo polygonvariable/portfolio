@@ -3,13 +3,14 @@ layout: layout
 title: Blogs
 ---
 
-{% set header = title %}
-{% set path = "/" %}
-{%
-	set cards = [
-		{ label: "Unreal Engine", url: "/blog/unreal", class: "bg-accent-08" },
-		{ label: "Blender", url: "/blog/blender", class: "bg-accent-09" }
+{% set section_header = title %}
+{% set section_path = "/" %}
+{% set section_textAccent = "text-accent-00" %}
+{% set section_cardPath = "widget/container/card-v.njk" %}
+{% set section_cardData = [
+		{ data: { title: "Unreal Engine", card_bgAccent: "bg-accent-08" }, url: "/blog/unreal" },
+		{ data: { title: "Blender", card_bgAccent: "bg-accent-04" }, url: "/blog/blender" }
 	]
 %}
 
-{% include "navigation/grid.njk" %}
+{% include "widget/container/grid.njk" %}

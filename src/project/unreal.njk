@@ -3,9 +3,9 @@ layout: layout
 title: Unreal Engine
 ---
 
-{% set header = title %}
-{% set bgAccent = "bg-accent-08" %}
-{% set path = "/project" %}
-{% set cards = collections.unrealProject %}
+{% set section_header = title %}
+{% set section_path = "/project" %}
+{% set section_cardPath = "widget/container/card-h.njk" %}
+{% set section_cardData = collections.unrealProject %}
 
-{% include "post/grid.njk" %}
+{% include "widget/container/grid.njk" %}

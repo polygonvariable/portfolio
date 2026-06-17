@@ -3,18 +3,19 @@ layout: layout
 title: Contact
 ---
 
-{% set header = title %}
-{% set path = "/" %}
-{%
-	set cards = [
-		{ label: "Youtube", url: "https://www.youtube.com/@PolygonVariable", class: "bg-accent-02" },
-		{ label: "Instagram", url: "https://www.instagram.com/polygonvariable", class: "bg-accent-03" },
-        { label: "Twitter", url: "https://twitter.com/polygonvariable", class: "bg-accent-04" },
-        { label: "Github", url: "https://github.com/polygonvariable", class: "bg-accent-05" },
-        { label: "Itch.io", url: "https://polygonvariable.itch.io/", class: "bg-accent-06" },
-        { label: "Reddit", url: "https://www.reddit.com/user/globalvariable7/", class: "bg-accent-07" },
-        { label: "Linktree", url: "https://linktr.ee/polygonvariable", class: "bg-accent-08" }
+{% set section_header = title %}
+{% set section_path = "/" %}
+{% set section_textAccent = "text-accent-00" %}
+{% set section_cardPath = "widget/container/card-v.njk" %}
+{% set section_cardData = [
+		{ data: { title: "Youtube", card_bgAccent: "bg-accent-02" }, url: "https://www.youtube.com/@PolygonVariable" },
+		{ data: { title: "Instagram", card_bgAccent: "bg-accent-03" }, url: "https://www.instagram.com/polygonvariable" },
+        { data: { title: "Twitter", card_bgAccent: "bg-accent-04" }, url: "https://twitter.com/polygonvariable" },
+        { data: { title: "Github", card_bgAccent: "bg-accent-05" }, url: "https://github.com/polygonvariable" },
+        { data: { title: "Itch.io", card_bgAccent: "bg-accent-06" }, url: "https://polygonvariable.itch.io/" },
+        { data: { title: "Reddit", card_bgAccent: "bg-accent-07" }, url: "https://www.reddit.com/user/globalvariable7/" },
+        { data: { title: "Linktree", card_bgAccent: "bg-accent-08" }, url: "https://linktr.ee/polygonvariable" }
 	]
 %}
 
-{% include "navigation/grid.njk" %}
+{% include "widget/container/grid.njk" %}

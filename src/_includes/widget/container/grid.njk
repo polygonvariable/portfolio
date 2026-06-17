@@ -1,0 +1,26 @@
+<div class="content">
+    <div class="navigation">
+        <h2 class="path color-secondary"><a href="{{ section_path | url }}">{{ section_path }}</a></h2>
+	    <h2 class="title color-primary">{{ section_header }}</h2>
+    </div>
+	<div class="card-container">
+        {% for card in section_cardData %}
+
+            {% set $cd = card.data %}
+            
+            {% set card_url = card.url %}
+            {% set card_title = $cd.title %}
+            {% set card_description = $cd.date | shortDate %}
+            
+            {% set card_bgAccent = $cd.card_bgAccent %}
+            {% set card_textAccent = $cd.card_textAccent %}
+
+            {% set card_image = $cd.card_thumbnail %}
+            {% set card_imagePosition = $cd.card_thumbnailPosition %}
+            {% set card_imageSize = $cd.card_thumbnailSize %}
+
+            {% include section_cardPath %}
+
+        {% endfor %}
+	</div>
+</div>

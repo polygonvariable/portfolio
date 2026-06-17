@@ -1,0 +1,14 @@
+---
+layout: layout
+---
+
+{% include "widget/blog/content.njk" %}
+{% include "widget/ui/separator.njk" %}
+
+{% set section_header = "Recent Arts" %}
+{% set section_path = "/art/" %}
+{% set section_bgAccent = "bg-accent-05" %}
+{% set section_cardData = collections.artBlog %}
+{% set section_cardPath = "widget/container/card-h.njk" %}
+
+{% include "widget/container/grid.njk" %}

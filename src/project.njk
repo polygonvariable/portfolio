@@ -3,14 +3,15 @@ layout: layout
 title: Projects
 ---
 
-{% set header = title %}
-{% set path = "/" %}
-{%
-	set cards = [
-		{ label: "Unreal Engine", url: "/project/unreal", class: "bg-accent-08" },
-		{ label: "Blender", url: "/project/blender", class: "bg-accent-09" },
-		{ label: "Web", url: "/project/web", class: "bg-accent-10" }
+{% set section_header = title %}
+{% set section_path = "/" %}
+{% set section_textAccent = "text-accent-00" %}
+{% set section_cardPath = "widget/container/card-v.njk" %}
+{% set section_cardData = [
+		{ data: { title: "Unreal Engine", card_bgAccent: "bg-accent-08" }, url: "/project/unreal" },
+		{ data: { title: "Blender", card_bgAccent: "bg-accent-09" }, url: "/project/blender" },
+		{ data: { title: "Web", card_bgAccent: "bg-accent-10" }, url: "/project/web" }
 	]
 %}
 
-{% include "navigation/grid.njk" %}
+{% include "widget/container/grid.njk" %}

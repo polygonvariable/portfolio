@@ -14,8 +14,12 @@ dist-ssr
 
 # Editor directories and files
 _site/*
+script/*
 src/style/app.css
 src/style/output.css
+src/asset/image/*.png
+src/asset/image/*.jpg
+src/asset/image/*.jpeg
 test/*
 .vscode/*
 !.vscode/extensions.json

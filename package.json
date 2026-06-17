@@ -6,20 +6,20 @@
 	"author": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "npm run dev:eleventy",
+		"dev": "npm run dev:eleventy && npm run dev:tailwind",
 		"dev:eleventy": "cross-env ELEVENTY_ENV=development npx @11ty/eleventy --serve",
 		"dev:tailwind": "npx tailwindcss -i ./src/asset/style/input.css -o ./src/asset/style/app.css --watch",
-
-		"build": "npm run build:eleventy && npm run build:pagefind && npm run build:tailwind",
+		"build": "npm run build:eleventy && npm run build:pagefind && npm run build:tailwind && npm run build:image",
 		"build:eleventy": "cross-env ELEVENTY_ENV=production npx @11ty/eleventy",
 		"build:tailwind": "npx tailwindcss -i ./src/asset/style/input.css -o ./src/asset/style/app.css --minify",
 		"build:pagefind": "pagefind --site _site",
-
+		"build:image": "node script/image-compress.js",
 		"deploy": "npm run build && gh-pages -d _site"
 	},
 	"dependencies": {
 		"@11ty/eleventy": "^3.1.2",
-		"@tailwindcss/cli": "^4.1.18"
+		"@tailwindcss/cli": "^4.1.18",
+		"sharp": "^0.34.5"
 	},
 	"devDependencies": {
 		"cross-env": "^10.1.0",

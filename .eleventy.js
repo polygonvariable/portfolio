@@ -14,9 +14,17 @@ module.exports = function (eleventyConfig) {
     let collections = {
         "unrealBlog": "./src/blog/unreal/*.njk",
         "blenderBlog": "./src/blog/blender/*.njk",
+        "artBlog": "./src/art/2026/*.njk",
+        
+        "art2026": "./src/art/2026/*.njk",
+        "art2025": "./src/art/2025/*.njk",
+        "art2024": "./src/art/2024/*.njk",
+        "art2023": "./src/art/2023/*.njk",
+        "art2022": "./src/art/2022/*.njk",
+
         "unrealProject": "./src/project/unreal/*.njk",
         "blenderProject": "./src/project/blender/*.njk",
-        "webProject": "./src/project/web/*.njk"
+        "webProject": "./src/project/web/*.njk",
     }
     
     for (let collectionName in collections) {
