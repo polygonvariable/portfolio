@@ -158,16 +158,22 @@ body, html {
     @apply h-28 w-full md:w-80 md:h-44;
 }
 
+.card > .card-backdrop {
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    @apply w-full h-full;
+    @apply absolute top-0 left-0;
+    @apply z-10;
+}
+
 .card > .card-content {
     @apply flex flex-col;
+    @apply z-20;
 }
 .card-content > .title {
-    @apply text-sm md:text-base;
-    @apply text-zinc-900;
+    @apply text-sm md:text-sm;
 }
 .card-content > .sub {
     @apply text-xs font-semibold;
-    @apply text-zinc-900;
 }
 
 
@@ -300,6 +306,9 @@ body, html {
 
 
 
+.text-accent-00 {
+    @apply text-zinc-950;
+}
 .text-accent-01 {
     @apply text-red-600;
 }
@@ -350,4 +359,7 @@ body, html {
 }
 .text-accent-17 {
     @apply text-rose-600;
+}
+.text-accent-18 {
+    @apply text-zinc-400;
 }
