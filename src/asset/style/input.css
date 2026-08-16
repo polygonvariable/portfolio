@@ -17,6 +17,11 @@ body, html {
     background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
 }
 
+.link {
+    @apply text-blue-400;
+    @apply font-semibold underline;
+}
+
 .app {
     @apply w-full h-full overflow-auto;
     @apply p-6 md:p-8 lg:p-16;
@@ -65,6 +70,7 @@ body, html {
     @apply absolute top-0 left-0;
     @apply w-full h-full;
     @apply bg-zinc-900 sm:bg-zinc-900/90;
+    @apply z-50;
 }
 #search-overlay > div {
     @apply w-full h-full;

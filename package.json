@@ -14,7 +14,10 @@
 		"build:tailwind": "npx tailwindcss -i ./src/asset/style/input.css -o ./src/asset/style/app.css --minify",
 		"build:pagefind": "pagefind --site _site",
 		"build:image": "node script/image-compress.js",
-		"deploy": "npm run build && gh-pages -d _site"
+		"clean": "npm run clean:site && npm run clean:image",
+		"clean:site": "node script/clean-site.js",
+		"clean:image": "node script/clean-image.js",
+		"deploy": "npm run clean && npm run build && npm run clean:image && gh-pages -d _site"
 	},
 	"dependencies": {
 		"@11ty/eleventy": "^3.1.2",

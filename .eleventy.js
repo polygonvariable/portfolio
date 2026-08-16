@@ -6,6 +6,14 @@ function addCollection(eleventyConfig, collectionName, collectionPath) {
     });
 }
 
+function addMergedCollection(eleventyConfig, collectionName, collectionPaths) {
+    eleventyConfig.addCollection(collectionName, function (collectionApi) {
+        return collectionApi
+            .getFilteredByGlob(collectionPaths)
+            .sort((a, b) => b.date - a.date);
+    });
+}
+
 module.exports = function (eleventyConfig) {
     const isProduction = process.env.ELEVENTY_ENV === "production";
 
@@ -30,6 +38,16 @@ module.exports = function (eleventyConfig) {
     for (let collectionName in collections) {
         addCollection(eleventyConfig, collectionName, collections[collectionName]);
     }
+
+    addMergedCollection(eleventyConfig, "blog", [
+        collections.unrealBlog,
+        collections.blenderBlog,
+    ]);
+
+    addMergedCollection(eleventyConfig, "project", [
+        collections.unrealProject,
+        collections.blenderProject,
+    ]);
 
     eleventyConfig.addFilter("shortDate", (dateObj) => {
         return new Intl.DateTimeFormat("en-IN", {
